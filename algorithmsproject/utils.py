@@ -1,25 +1,24 @@
-import csv
-import pandas
+def read_test_data(self, path_to_test_data):
+    """Read test file with sample routes"""
 
-# def parseFile(input):
-#     N, instructions = None, []
-#     with open(input, 'r') as f:
-#         N = int(f.readline())
-#         for line in f.readlines():
-#             instructions.append(line)
-#     return N
+    print(f'Reading routes from {path_to_test_data}')
+    with open('./input/test.csv') as fp:
+        lines = fp.readlines()
+        for line in lines:
+            print(f'Route: {line}')
+            tokens = line.strip().split(',')
+            airport_codes = tokens[:-1]
+            aircraft_code = tokens[-1]
+            travel_plan = TravelPlan()
+            for airport_code in airport_codes:
+                travel_plan.add_airport(
+                    self.cache_airport[airport_code]
+                )
+            travel_plan.set_start_airport(
+                self.cache_airport[tokens[0]]
+            )
 
-
-with open('../input/airport.csv') as csvfile:
-    readCSV = csv.reader(csvfile, delimiter=',')
-    airports =[]
-    for row in readCSV:
-        key =row[4]
-        # airports = {key: row[6], key: row[7]}
-        airports = { key: (row[6], row[7]) }
-
-    print(airports)
-
-# airports = pandas.read_csv("../input/aircraft.csv", header=None, dtype=str)
-
-# print(airports)
+            travel_plan.add_aircraft(
+                self.cache_aircraft[aircraft_code]
+            )
+            self.travel_plans.append(travel_plan)

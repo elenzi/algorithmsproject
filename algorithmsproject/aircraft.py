@@ -1,4 +1,6 @@
 class Aircraft:
+    """Represents an aircraft"""
+
     __MIN_FUEL = 100
 
     def __init__(self, flight_number="", code: str = None, units: str = None, range_max: int = None):
@@ -16,7 +18,7 @@ class Aircraft:
         if self.units == 'metric':
             return self.range_max
         else:
-            return self.range_max * 1.6  # Confirm how to convert from imperial distance to metric.
+            return self.range_max * 1.6093  # Imperial: 1 mile = Metric: 1 kilometer
 
     def fuel_check(self):
         if self.__fuel < self.__MIN_FUEL:

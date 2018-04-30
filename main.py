@@ -58,7 +58,7 @@ class EconomicRoutesApp:
                 # search_algorithm = GreedySearch(travel_plan)
                 cheapest_route, cost = search_algorithm.search()
 
-                print(f'Cheapest route is {cheapest_route} with cost of €{round(cost, 2)}')
+                print(f'Cheapest route is {cheapest_route} with cost of € {round(cost, 2)}')
                 print('*' * 80, '\n')
             except ValueError as e:
                 print(e)
@@ -68,6 +68,7 @@ def main():
     # read the input file into classes/structures
     application = EconomicRoutesApp()
     application.load_all_data()
+
     path_to_test_data = './input/test.csv'
     application.read_test_data(path_to_test_data)
     application.find_economic_routes()

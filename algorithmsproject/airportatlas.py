@@ -145,7 +145,7 @@ class AirportAtlas:
                     pass
         print(f'Could not process {num_failed} records')
 
-        # print("Currencies: ", self.currencies)
+        print("Currencies: ", self.currencies)
         return self.currencies
 
     def compute_cost(self, route: Route, aircraft: Aircraft):

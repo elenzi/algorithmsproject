@@ -13,7 +13,7 @@ class BruteForce:
         self.travel_plan = travel_plan
 
     def search(self):
-        """Find the shortest path"""
+        """Finds the shortest path"""
         print('Initiating search.....')
 
         # List comprehensions provide a concise way to create lists.
@@ -34,7 +34,6 @@ class BruteForce:
                 route.enqueue(airport)
             route.enqueue(self.travel_plan.start_airport)
             route_collection.append(route)
-
 
         # Let's look into our route collection
         min_cost = None
